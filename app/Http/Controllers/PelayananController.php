@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Pelayanan;
+use App\Models\Pendaftaran;
+
+class PelayananController extends Controller
+{
+    public function index()
+    {
+        return view('pelayanan.pelayanan', [
+            'title' => 'Pelayanan',
+            'pelayanan' => Pelayanan::latest()->get()
+        ]);
+    }
+
+    public function show()
+    {
+        return view('pelayanan.show', ['title' => 'Konsultasi Bisnis']);
+    }
+
+    public function create(Pelayanan $pelayanan)
+    {
+        return view('pelayanan.create', [
+            'title' => 'Daftar ' . $pelayanan->judul,
+            'pelayanan' => $pelayanan
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validated();
+
+        Pendaftaran::create($data);
+        return redirect('pelayanan/daftar/sukses');
+    }
+}
