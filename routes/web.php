@@ -41,13 +41,15 @@ Route::controller(PelayananController::class)->group(function () {
 });
 
 // User Login & Registration
-Route::controller(AuthController::class)->middleware('guest')->group(function () {
-    Route::get('signup', 'signup');
-    Route::post('register', 'register');
-    Route::get('signup/success', fn () => view('auth.signup_success', ['title' => 'Registrasi Berhasil']))->name('signup-success');
+Route::controller(AuthController::class)->group(function () {
+    Route::middleware('guest')->group(function () {
+        Route::get('signup', 'signup');
+        Route::post('register', 'register');
+        Route::get('signin', 'signin')->name('login');
+        Route::post('authenticate', 'authenticate');
+    });
 
-    Route::get('signin', 'signin')->name('login');
-    Route::post('authenticate', 'authenticate');
+    Route::get('signup/success', fn () => view('auth.signup_success', ['title' => 'Registrasi Berhasil']))->name('signup-success');
 });
 
 // User Dashboard

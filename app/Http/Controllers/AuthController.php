@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         event(new Registered($user));
         Auth::login($user);
-        return redirect()->route('signup-success')->with('success', "Kamu sudah berhasil terdaftar bersama kami. Let's grow up now.");
+        return redirect(route('signup-success'))->with('success', "Kamu sudah berhasil terdaftar bersama kami. Let's grow up now.");
     }
 
     public function signin()
