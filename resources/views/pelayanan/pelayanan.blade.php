@@ -15,7 +15,7 @@
                 <a href="{{ url('pelayanan/' . $data->judul . '/daftar') }}" class="text-decoration-none text-dark">
                     <div class="card border-dark">
                         @if ($data->url_foto)
-                            <img src="{{ asset('storage/' . $data->url_foto) }}" class="w-100">
+                            <img src="{{ asset('storage/' . $data->url_foto) }}" class="w-100.">
                         @else
                             <img src="https://source.unsplash.com/random/300x200" class="card-img-top">
                         @endif

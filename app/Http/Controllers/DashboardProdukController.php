@@ -15,7 +15,7 @@ class DashboardProdukController extends Controller
      */
     public function index()
     {
-        $produk = Produk::orderBy('id', 'desc')->paginate(10);
+        $produk = Produk::orderBy('id', 'desc')->where('user_id', auth()->user()->id)->paginate(10);
         return view('dashboard.products.products-dashboard', [
             'title' => 'Produk',
             'produk' => $produk
@@ -85,7 +85,6 @@ class DashboardProdukController extends Controller
     public function update(DashboardProdukRequest $request, Produk $produk)
     {
         $data = $request->validated();
-
         Produk::where('id', $produk->id)
             ->update($data);
         return redirect('dashboard/produk')->with('success', 'Produk Berhasil Diedit!');

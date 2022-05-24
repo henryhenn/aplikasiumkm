@@ -27,8 +27,8 @@ class DashboardProdukRequest extends FormRequest
             'user_id' => 'required|sometimes',
             'nama' => 'required|max:255',
             'deskripsi' => 'required|max:255',
-            'slug' => 'nullable|sometimes',
-            'harga' => 'required'
+            'slug' => 'required|sometimes',
+            'harga' => 'required|integer'
         ];
     }
 }

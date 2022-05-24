@@ -22,7 +22,6 @@ class DashboardGaleriController extends Controller
 
     public function destroy(ProdukGaleri $galeri)
     {
-        // dd($galeri);
         ProdukGaleri::destroy($galeri->id);
         Storage::delete($galeri->url_foto);
         return back()->with('success', 'Gambar Berhasil Dihapus!');

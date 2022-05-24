@@ -15,10 +15,10 @@
                 </div>
                 <h3>{{ $pelayanan->jenis }}</h3>
                 <div class="d-flex justify-content-between mb-4">
-                    <p class="text-danger">{{ auth()->user()->nama_usaha }}</p>
+                    <p class="text-danger">{{ $pelayanan->nama_usaha }}</p>
                     <p class="text-danger">{{ $pelayanan->tanggal }}</p>
                     <p class="text-danger">{{ $pelayanan->pelayanan->jenis }}</p>
-                    <p class="text-danger">{{ auth()->user()->nama }}</p>
+                    <p class="text-danger">{{ $pelayanan->nama_pemilik }}</p>
                 </div>
                 <p>{{ $pelayanan->pelayanan->deskripsi }}</p>
             </div>
