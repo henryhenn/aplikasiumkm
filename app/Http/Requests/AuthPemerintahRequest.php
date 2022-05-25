@@ -25,7 +25,7 @@ class AuthPemerintahRequest extends FormRequest
     {
         return [
             'email' => 'required|email|max:255',
-            'roles' => 'required',
+            'roles' => 'required|in:Pemerintah',
             'password' => 'required'
         ];
     }

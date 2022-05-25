@@ -24,10 +24,10 @@ class DashboardProdukRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|sometimes',
+            'user_id' => 'required',
             'nama' => 'required|max:255',
             'deskripsi' => 'required|max:255',
-            'slug' => 'required|sometimes',
+            'slug' => 'sometimes',
             'harga' => 'required|integer'
         ];
     }

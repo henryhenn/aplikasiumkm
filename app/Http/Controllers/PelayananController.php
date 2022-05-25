@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\PelayananRequest;
 use App\Models\Pelayanan;
 use App\Models\Pendaftaran;

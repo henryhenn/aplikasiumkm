@@ -49,7 +49,9 @@ Route::controller(AuthController::class)->group(function () {
         Route::post('authenticate', 'authenticate');
     });
 
-    Route::get('signup/success', fn () => view('auth.signup_success', ['title' => 'Registrasi Berhasil']))->name('signup-success');
+    Route::get('signup/success', function () {
+        return view('auth.signup_success', ['title' => 'Registrasi Berhasil']);
+    })->name('signup-success');
 });
 
 // User Dashboard
