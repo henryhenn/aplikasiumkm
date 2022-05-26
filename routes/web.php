@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
     );
     Route::resource('dashboard/galeri', DashboardGaleriController::class)->only(['store', 'destroy']);
     Route::get('dashboard/pelayanan', [DashboardPelayananController::class, 'index']);
-    Route::get('dashboard/pelayanan/{pelayanan:id}', [DashboardPelayananController::class, 'show']);
+    Route::get('dashboard/pelayanan/{pendaftaran:id}', [DashboardPelayananController::class, 'show']);
     Route::resource('dashboard/profil', DashboardProfileController::class)->only(['index', 'update']);
 });
 

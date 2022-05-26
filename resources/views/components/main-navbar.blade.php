@@ -18,9 +18,15 @@
                     <a class="nav-link" href="{{ url('pelayanan') }}">Pelayanan</a>
                 </li>
                 @auth
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="{{ url('dashboard/produk') }}">Dashboard</a>
-                    </li>
+                    @can('umkm')
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="{{ url('dashboard/produk') }}">Dashboard</a>
+                        </li>
+                    @elsecan('pemerintah')
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="{{ url('pemerintah/pelayanan') }}">Dashboard</a>
+                        </li>
+                    @endcan
                     <li class="nav-item ml-3">
                         <form action="{{ url('logout') }}" method="post">
                             @csrf

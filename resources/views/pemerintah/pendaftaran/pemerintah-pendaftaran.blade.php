@@ -45,8 +45,13 @@
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->nama_usaha }}</td>
                                 <td>{{ $data->pelayanan->judul }}</td>
-                                <td>{{ $data->user->nama }}</td>
-                                <td>{{ $data->user->no_telp }}</td>
+                                @if ($data->user)
+                                    <td>{{ $data->user->nama }}</td>
+                                    <td>{{ $data->user->no_telp }}</td>
+                                @else
+                                    <td>UMKM Telah Dihapus</td>
+                                    <td>UMKM Telah Dihapus</td>
+                                @endif
                                 <td>{{ $data->permasalahan }}</td>
                                 <td>{{ $data->status_pendaftaran }}</td>
                                 <td>
@@ -65,7 +70,7 @@
                         @empty
                             <tr>
                                 <td colspan="8">
-                                    <h4 class="font-weight-bold text-center">Tidak ada pelayanan terbaru</h4>
+                                    <h4 class="font-weight-bold text-center">Tidak ada pendaftaran terbaru</h4>
                                 </td>
                             </tr>
                         @endforelse

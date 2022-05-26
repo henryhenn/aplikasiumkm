@@ -15,10 +15,11 @@ class DashboardPelayananController extends Controller
     }
     public function show(Pendaftaran $pendaftaran)
     {
-        // dd($pendaftaran->with('pelayanan')->where('user_id', auth()->user()->id)->get());
+        // dd($pendaftaran->where('user_id', auth()->user()->id))->where('id', $pendaftaran->id)->get();
+        // dd($pendaftaran);
         return view('dashboard.pelayanan.pelayanan-show', [
             'title' => 'Pelayanan',
-            'pelayanan' => $pendaftaran->with('pelayanan')->where('user_id', auth()->user()->id)->get()
+            'pendaftaran' => $pendaftaran
         ]);
     }
 }

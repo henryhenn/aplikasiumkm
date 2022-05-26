@@ -42,7 +42,7 @@
                                 <td>{{ $data->pelayanan->jenis }}</td>
                                 <td>{{ $data->tanggal }}</td>
                                 <td>
-                                    <a href="{{ url('dashboard/pelayanan/' . $data->pelayanan->id) }}"
+                                    <a href="{{ url('dashboard/pelayanan/' . $data->id) }}"
                                         class="text-primary text-decoration-none">Lihat Tiket</a>
                                 </td>
                             </tr>
