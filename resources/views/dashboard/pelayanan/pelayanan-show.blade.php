@@ -2,11 +2,10 @@
 
 @section('content')
     <div class="row mt-4">
-        {{-- @foreach ($pendaftaran as $pendaftaran) --}}
         <div class="card card-border border-dark p-4" style="border-radius: 15px;">
             <div class="d-flex mb-3">
-                @if ($pendaftaran->url_foto)
-                    <img src="{{ asset('storage/' . $pendaftaran->url_foto) }}" class="img-fluid"
+                @if ($pendaftaran->pelayanan->url_foto)
+                    <img src="{{ asset('storage/' . $pendaftaran->pelayanan->url_foto) }}" class="img-fluid"
                         style="width: 500px;">
                 @else
                     <img src="https://source.unsplash.com/random/400x200" class="img-fluid">
@@ -24,6 +23,5 @@
             <p class="text-danger font-weight-bold">Status: {{ $pendaftaran->status_pendaftaran }}</p>
             <p>{{ $pendaftaran->pelayanan->deskripsi }}</p>
         </div>
-        {{-- @endforeach --}}
     </div>
 @endsection

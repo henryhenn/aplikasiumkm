@@ -12,7 +12,7 @@
     <div class="row mt-4">
         @forelse ($pelayanan as $data)
             <div class="col-lg-3 col-sm-12 mb-3">
-                <a href="{{ url('pelayanan/' . $data->judul . '/daftar') }}" class="text-decoration-none text-dark">
+                <a href="{{ url('pelayanan/' . $data->judul) }}" class="text-decoration-none text-dark">
                     <div class="card border-dark">
                         @if ($data->url_foto)
                             <img src="{{ asset('storage/' . $data->url_foto) }}" class="img-fluid">

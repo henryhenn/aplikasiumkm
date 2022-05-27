@@ -34,7 +34,7 @@ Route::controller(ProdukController::class)->group(function () {
 // Pelayanan
 Route::controller(PelayananController::class)->group(function () {
     Route::get('pelayanan', 'index');
-    Route::get('pelayanan/konsultasi-bisnis', 'show');
+    Route::get('pelayanan/{pelayanan:judul}', 'show');
     Route::get('pelayanan/{pelayanan:judul}/daftar', 'create')->middleware('auth');
     Route::post('pelayanan/daftar', 'store')->middleware('auth')->middleware('auth');
     Route::get('pelayanan/daftar/sukses', fn () => view('pelayanan.success', ['title' => 'Pendaftaran Sukses']));

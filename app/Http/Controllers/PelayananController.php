@@ -16,9 +16,12 @@ class PelayananController extends Controller
         ]);
     }
 
-    public function show()
+    public function show(Pelayanan $pelayanan)
     {
-        return view('pelayanan.show', ['title' => 'Konsultasi Bisnis']);
+        return view('pelayanan.show', [
+            'title' => 'Konsultasi Bisnis',
+            'pelayanan' => $pelayanan
+        ]);
     }
 
     public function create(Pelayanan $pelayanan)
