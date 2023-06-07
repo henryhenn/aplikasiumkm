@@ -57,10 +57,9 @@ Route::controller(AuthController::class)->group(function () {
 // User Dashboard
 Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
-
-    Route::resource('dashboard/produk', DashboardProdukController::class)->parameters(
-        ['produk' => 'produk:slug']
-    );
+    Route::resource('dashboard/produk', DashboardProdukController::class)->parameters([
+        'produk' => 'produk:slug'
+    ]);
     Route::resource('dashboard/galeri', DashboardGaleriController::class)->only(['store', 'destroy']);
     Route::get('dashboard/pelayanan', [DashboardPelayananController::class, 'index']);
     Route::get('dashboard/pelayanan/{pendaftaran:id}', [DashboardPelayananController::class, 'show']);

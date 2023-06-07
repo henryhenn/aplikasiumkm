@@ -18,12 +18,12 @@ class AuthController extends Controller
     public function register(SignupRequest $request)
     {
         $data = $request->all();
-
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
 
         event(new Registered($user));
         Auth::login($user);
+
         return redirect(route('signup-success'))->with('success', "Kamu sudah berhasil terdaftar bersama kami. Let's grow up now.");
     }
 
@@ -40,8 +40,10 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($user)) {
             $request->session()->regenerate();
+
             return redirect()->intended('/')->with('success', 'Selamat datang, ' . auth()->user()->nama . '!');
         }
+
         return back()->with('failed', 'Email atau Password Salah. Silakan Coba Lagi!');
     }
 
@@ -50,6 +52,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect('/')->with('success', 'Anda Telah Logout');
     }
 }

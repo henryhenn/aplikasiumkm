@@ -11,11 +11,14 @@ class DashboardProdukController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        $produk = Produk::orderBy('id', 'desc')->where('user_id', auth()->user()->id)->paginate(10);
+        $produk = Produk::query()
+            ->orderBy('id', 'desc')
+            ->where('user_id', auth()->user()->id)
+            ->paginate(10);
         return view('dashboard.products.products-dashboard', [
             'title' => 'Produk',
             'produk' => $produk
@@ -35,7 +38,7 @@ class DashboardProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(DashboardProdukRequest $request)
@@ -50,7 +53,7 @@ class DashboardProdukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param \App\Models\Produk $produk
      * @return \Illuminate\Http\Response
      */
     public function show(Produk $produk)
@@ -64,7 +67,7 @@ class DashboardProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param \App\Models\Produk $produk
      * @return \Illuminate\Http\Response
      */
     public function edit(Produk $produk)
@@ -78,8 +81,8 @@ class DashboardProdukController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produk  $produk
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Produk $produk
      * @return \Illuminate\Http\Response
      */
     public function update(DashboardProdukRequest $request, Produk $produk)
@@ -93,7 +96,7 @@ class DashboardProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param \App\Models\Produk $produk
      * @return \Illuminate\Http\Response
      */
     public function destroy(Produk $produk)

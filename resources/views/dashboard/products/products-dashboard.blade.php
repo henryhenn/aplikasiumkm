@@ -20,7 +20,8 @@
         </div>
         <div class="col-2">
             <div class="input-group">
-                <input type="text" name="search" id="search" style="border-color: rgb(255, 38, 0);" class="form-control">
+                <input type="text" name="search" id="search" style="border-color: rgb(255, 38, 0);"
+                    class="form-control">
                 <button class="btn" style="border-color: rgb(255, 38, 0);"><i
                         class="fa-solid fa-magnifying-glass fa-xl"></i></button>
             </div>

@@ -12,11 +12,15 @@
             </div>
         </div>
     </div>
+    @foreach ($errors->all() as $error)
+        {{ $error }}
+    @endforeach
     <div class="row mt-3">
         <div class="col-10">
             <form action="{{ route('produk.update', $produk->slug) }}" method="post">
                 @method('put')
                 @csrf
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <div class="form-group mb-3">
                     <label for="nama">Nama Produk</label>
                     <input type="text" name="nama" id="nama" value="{{ old('nama', $produk->nama) }}"
